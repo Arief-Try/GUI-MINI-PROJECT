@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="MOONBUCKS">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/MOONBUCKS/dist/MOONBUCKS.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
