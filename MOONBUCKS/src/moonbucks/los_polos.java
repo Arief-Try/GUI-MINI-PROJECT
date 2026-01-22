@@ -1,13 +1,11 @@
 package moonbucks;
 
 import java.awt.*;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
 import javax.swing.*;
 import javax.swing.border.TitledBorder;
 
 // Pastikan extends SuperClass untuk guna harga & tax rate
-public class moonbucks extends javax.swing.JFrame {
+public class los_polos extends javax.swing.JFrame {
 
     // --- Palette ---
     Color primaryColor = new Color(255, 87, 34);   // Deep Orange
@@ -28,7 +26,7 @@ public class moonbucks extends javax.swing.JFrame {
             jtxtTax = new JTextField("0.00"), jtxtTotal = new JTextField("0.00");
     JTextArea jtxtReceipt = new JTextArea();
 
-    public moonbucks() {
+    public los_polos() {
         setupLayout();
         this.setUndecorated(true);
         this.setSize(1200, 700); // Atau 1100, 650 jika skrin kecil
@@ -93,14 +91,14 @@ public class moonbucks extends javax.swing.JFrame {
         gbc.weighty = 1.0;
 
         // COLUMN A: FOOD
-        gbc.weightx = 0.30;
+        gbc.weightx = 0.25;
         JPanel pFood = createSection("MAIN DISHES");
         String[] fNames = {"Pollos Classic (RM 7.00)" , "Family Bucket (RM25.00)", "Pollos Tenders(RM 9.00)", "Taco Rancheros (RM 8.00)", "Enchilada Rancheros (RM 8.00)", "Huevos Rancheros (RM 8.00)"};
         for(int i=0; i<6; i++) { fFields[i] = new JTextField("0"); addStepper(pFood, fNames[i], fFields[i]); }
         centerGrid.add(pFood, gbc);
 
         // COLUMN B: DRINKS & SIDES
-        gbc.weightx = 0.30;
+        gbc.weightx = 0.25;
         JPanel pDrink = createSection("DRINKS & SIDES");
         String[] dNames = {"Horchata Soda (RM5.00)", "Southwestern Tea (RM4.00)", "Orange Juice (RM7.00)", "Spice Curls (RM4.00)", "Pimento Sandwich (RM5.00)", "Lalo's Tacos (RM9.00)"};
         for(int i=0; i<6; i++) { dFields[i] = new JTextField("0"); addStepper(pDrink, dNames[i], dFields[i]); }
@@ -119,10 +117,10 @@ public class moonbucks extends javax.swing.JFrame {
         JPanel pCosts = new JPanel(new GridLayout(8, 1, 0, 4));
         pCosts.setOpaque(false);
         pCosts.setBorder(BorderFactory.createTitledBorder(BorderFactory.createLineBorder(whiteColor), "TOTALS", TitledBorder.CENTER, 0, fontBtn, whiteColor));
-        addLabel(pCosts, "DRINKS:"); addDisplayField(pCosts, jtxtCOD);
-        addLabel(pCosts, "FOOD:"); addDisplayField(pCosts, jtxtCOF);
-        addLabel(pCosts, "TAX:"); addDisplayField(pCosts, jtxtTax);
-        addLabel(pCosts, "TOTAL:"); addDisplayField(pCosts, jtxtTotal);
+        addLabel(pCosts, "DRINKS :"); addDisplayField(pCosts, jtxtCOD);
+        addLabel(pCosts, "FOOD :"); addDisplayField(pCosts, jtxtCOF);
+        addLabel(pCosts, "TAX(10%) :"); addDisplayField(pCosts, jtxtTax);
+        addLabel(pCosts, "TOTAL :"); addDisplayField(pCosts, jtxtTotal);
 
         pMid.add(pBtns);
         pMid.add(pCosts);
@@ -130,7 +128,7 @@ public class moonbucks extends javax.swing.JFrame {
 
         // COLUMN D: RECEIPT
 // COLUMN D: RECEIPT
-        gbc.weightx = 0.50; // <--- Besarkan nilai ini (Asal: 0.30)
+        gbc.weightx = 0.65; // <--- Besarkan nilai ini (Asal: 0.30)
         jtxtReceipt.setFont(new Font("Monospaced", Font.PLAIN, 14));
         JScrollPane scroll = new JScrollPane(jtxtReceipt);
 // Pastikan scrollpane dibenarkan untuk membesar
@@ -245,14 +243,14 @@ public class moonbucks extends javax.swing.JFrame {
 
     private void generateReceipt() {
         jtxtReceipt.setText("\n    LOS POLLOS HERMANOS\n" + "==========================\n" +
-                " Food:        RM " + jtxtCOF.getText() + "\n" +
-                " Drinks:      RM " + jtxtCOD.getText() + "\n" +
-                " Tax:         RM " + jtxtTax.getText() + "\n" +
-                " TOTAL:       RM " + jtxtTotal.getText() + "\n" +
+                " Food:         RM " + jtxtCOF.getText() + "\n" +
+                " Drinks:       RM " + jtxtCOD.getText() + "\n" +
+                " Tax(10%):     RM " + jtxtTax.getText() + "\n" +
+                " TOTAL:        RM " + jtxtTotal.getText() + "\n" +
                 "==========================\n" + "      THANK YOU!");
     }
 
     public static void main(String[] args) {
-        new moonbucks().setVisible(true);
+        new los_polos().setVisible(true);
     }
 }

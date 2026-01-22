@@ -21,7 +21,7 @@ public class SuperClass {
     public double pLaloTacos = 9.00;
 
     // TAX RATE (Walaupun kita guna flat 0.60, biarkan ada variable ni untuk OOP)
-    public double TaxRate = 0.60;
+    public double TaxRate = 0.1;
 
     // Method Exit
     private JFrame frame;
